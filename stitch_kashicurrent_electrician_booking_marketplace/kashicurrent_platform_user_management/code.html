@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management | KashiCurrent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Eb+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-primary-fixed-variant": "#8a4518", "on-secondary-fixed": "#2a2420", "on-tertiary-container": "#3a2020", "surface-container-lowest": "#ffffff", "surface-bright": "#faf5ee", "surface-tint": "#c2652a", secondary: "#78706a", "on-surface": "#3a302a", "secondary-fixed-dim": "#cec6be", "on-secondary-container": "#605850", "primary-fixed-dim": "#f0a878", "on-tertiary": "#ffffff", "error-container": "#fce4e0", "outline-variant": "#d8d0c8", "primary-container": "#e08850", surface: "#faf5ee", "on-tertiary-fixed": "#2e1515", "surface-container": "#f2ece4", "tertiary-fixed-dim": "#e8a0a0", "inverse-surface": "#3a302a", outline: "#9a9088", "on-primary": "#ffffff", "surface-container-highest": "#e6e0d6", "secondary-container": "#eae2da", "tertiary-fixed": "#fce0e0", "primary-fixed": "#fbe8d8", "surface-dim": "#dcd6cc", error: "#c0392b", "surface-container-high": "#ece6dc", "on-primary-fixed": "#401a08", "inverse-primary": "#f0a878", "surface-variant": "#ece6dc", "secondary-fixed": "#eae2da", "on-background": "#3a302a", "tertiary-container": "#d47070", primary: "#c2652a", "on-surface-variant": "#605850", tertiary: "#8c3c3c", "on-tertiary-fixed-variant": "#6e3030", "surface-container-low": "#f6f0e8", "inverse-on-surface": "#faf5ee", background: "#faf5ee", "on-error": "#ffffff", "on-error-container": "#7a1a10", "on-secondary": "#ffffff", "on-primary-container": "#fbe8d8", "on-secondary-fixed-variant": "#504840"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-max": "1280px", "stack-lg": "32px", "stack-sm": "8px", "stack-md": "16px", "margin-mobile": "16px", unit: "4px", gutter: "24px", "margin-desktop": "40px"}, fontFamily: {"label-md": ["Geist"], caption: ["Manrope"], "headline-lg-mobile": ["Geist"], "headline-md": ["Geist"], "display-lg": ["Geist"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "headline-lg": ["Geist"], headline: ["Eb Garamond"], display: ["Eb Garamond"], body: ["Manrope"], label: ["Manrope"]}, fontSize: {"label-md": ["14px", {lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500"}], caption: ["12px", {lineHeight: "16px", fontWeight: "400"}], "headline-lg-mobile": ["24px", {lineHeight: "32px", fontWeight: "600"}], "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="bg-surface dark:bg-inverse-surface h-screen w-64 fixed left-0 top-0 flex flex-col h-full py-stack-md px-4 border-r border-outline-variant/30 z-40">
+<div class="mb-stack-lg px-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">KashiCurrent</h1>
+<p class="font-caption text-caption text-on-surface-variant">Premium Electrical Service</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-lg flex items-center gap-3 px-4 py-3 group" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="electrical_services">electrical_services</span>
+<span class="font-label-md text-label-md">Electricians</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">My Bookings</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/20 pt-stack-md">
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 p-margin-desktop">
+<header class="mb-stack-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">User Management</h2>
+<p class="font-body-md text-on-surface-variant">Manage platform roles, account statuses, and credentials.</p>
+</div>
+<div class="flex gap-stack-sm">
+<button class="bg-surface-container-low border border-outline-variant text-on-surface px-stack-md py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                    Export Data
+                </button>
+<button class="bg-primary text-on-primary px-stack-md py-2 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]" data-icon="person_add">person_add</span>
+                    Invite User
+                </button>
+</div>
+</header>
+<!-- Table Filters & Search Container -->
+<div class="glass-panel rounded-xl shadow-sm mb-stack-md p-stack-md flex flex-col md:flex-row gap-stack-md items-center justify-between">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg font-body-md outline-none transition-all" placeholder="Search by name, email or ID..." type="text"/>
+</div>
+<div class="flex items-center gap-stack-sm w-full md:w-auto">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                    Filter by Status:
+                </div>
+<select class="bg-white border border-outline-variant text-on-surface-variant rounded-lg px-3 py-2 font-label-md text-label-md outline-none focus:border-primary min-w-[140px]">
+<option>All Statuses</option>
+<option>Active</option>
+<option>Suspended</option>
+<option>Blocked</option>
+</select>
+<button class="p-2 border border-outline-variant rounded-lg text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+<!-- Main Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/30">
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">User Profile</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Role</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Join Date</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a mature man with a friendly expression, captured in high-key studio lighting with a soft grey background. He is wearing a clean, modern navy polo shirt, embodying a premium service provider aesthetic. The image is sharp with a shallow depth of field, focusing on his warm eyes and professional demeanor, fitting the KashiCurrent brand colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUUvoaB6XLwRdfHFDzEnKd2i5TQvJ0BzD0Y3Qk6dtiwCOHcWQSwSo3HZFjI-EKonVvHgTbGgS7zMgCYwN4wKJCcL1ow-vya4hELBi_fiT37lkMJvVZX_qtrqakHurf7MSrG1Nd_rIV3768WTcqKQikKs8oRUGkQyaTWQHuzqYD1k39k5_MJNKELunTwCgAnNDZTVAi0-OsYERJ9_j3VEiaKzNj8ydP9t_2v5vooPtmWYBM1VAGLyj5VdAtklyyULx15w4It8_uSug"/>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Julian Marcotte</div>
+<div class="font-caption text-caption text-outline">julian.m@provider.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-on-secondary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="bolt">bolt</span>
+<span class="font-label-md text-label-md">Electrician</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-on-surface-variant">Oct 24, 2023</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary px-2.5 py-1 rounded-full font-label-md text-[12px] flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    Active
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-primary" title="Edit">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded transition-colors text-outline-variant hover:text-error" title="Block">
+<span class="material-symbols-outlined text-[20px]" data-icon="block">block</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-on-surface" title="Reset Password">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock_reset">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A bright portrait of a young woman with a confident smile, set against a blurred, minimalist architectural background. The lighting is natural and luminous, creating a welcoming and modern atmosphere. She is dressed in a smart-casual white blouse that complements the light-mode UI design. The visual style is crisp, airy, and high-end, emphasizing trust and accessibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZp5Z2RyD_Hs8eLG0UaON6nsTS5FcxnXFcSocbsILDCKPhVQmQJIC8JOnBI0NGtn1iSrpqpaZMyOulKjvMbOLwMDgYi-uu77zxcPoJa1TvLZRImNo_qRUY7wJJH8IffWpUWjnhDafJoGEH_vgq5BJPQXvVPmhjRe6K-xNDDghN8PSiiFHPC8QSsQb2yOBLdv4elGQjSiBaTTzqLJIE2IBKuG-BJDS-6a7u5KzmSgiY6WVuzWd369Kji5hQNASQbToKbvJmIvC5ADI"/>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Elena Rodriguez</div>
+<div class="font-caption text-caption text-outline">elena.rod@icloud.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Homeowner</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-on-surface-variant">Nov 12, 2023</td>
+<td class="px-6 py-4">
+<span class="bg-primary/10 text-primary px-2.5 py-1 rounded-full font-label-md text-[12px] flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    Active
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded transition-colors text-outline-variant hover:text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="block">block</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock_reset">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" data-icon="person">person</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Marcus Thorne</div>
+<div class="font-caption text-caption text-outline">m.thorne@engineering.co</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-on-secondary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="bolt">bolt</span>
+<span class="font-label-md text-label-md">Electrician</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-on-surface-variant">Dec 01, 2023</td>
+<td class="px-6 py-4">
+<span class="bg-secondary-container/10 text-on-secondary-container px-2.5 py-1 rounded-full font-label-md text-[12px] flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                                    Suspended
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded transition-colors text-outline-variant hover:text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="block">block</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock_reset">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male professional looking directly at the camera with a calm and reliable expression. He is wearing a minimalist, well-fitted grey t-shirt. The background is a clean, modern workspace with soft focus, enhancing the premium professional feel of the interface. The lighting is soft and directional, creating subtle shadows and highlights that emphasize the geometric precision of the UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC2y8wxYarIuPRfS9Jv8uvN_hePZZKha74-kfSvboUx2nZwhTLQz97W_sWDmVG_oPaCOjcnSQfyiao6juDzcpn_Kau9fmAzzvGTFglf3OSLQndHpLawn3Jv4jWsNxMso7GCvIIURd4tqw4HHpNgc8llgBUSrI-EO-rUAJ3BtkQgK6v3Y26OgZy6fjkkDRMwqw-l96euyRgK_4mL8-qWIcyzNnsm6SkERXDsjgjzVDivNT29OvuBWwNeZQNn-2TmKDtzAaxyU8TqB8"/>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Samuel Wright</div>
+<div class="font-caption text-caption text-outline">sam.wright@gmail.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Homeowner</span>
+</div>
+</td>
+<td class="px-6 py-4 font-body-md text-on-surface-variant">Jan 14, 2024</td>
+<td class="px-6 py-4">
+<span class="bg-error-container text-error px-2.5 py-1 rounded-full font-label-md text-[12px] flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                    Blocked
+                                </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded transition-colors text-outline-variant hover:text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle">check_circle</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded transition-colors text-outline-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock_reset">lock_reset</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Bulk Actions -->
+<div class="px-6 py-4 bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-stack-md border-t border-outline-variant/30">
+<div class="flex items-center gap-stack-sm">
+<button class="px-stack-md py-1.5 border border-outline-variant text-on-surface-variant hover:bg-white rounded-lg font-label-md text-label-md transition-all active:scale-[0.98]">
+                        Bulk Action
+                    </button>
+<span class="text-caption font-caption text-outline">3 users selected</span>
+</div>
+<div class="flex items-center gap-stack-sm">
+<span class="text-caption font-caption text-outline mr-stack-sm">Page 1 of 42</span>
+<nav class="flex items-center -space-x-px">
+<button class="p-2 border border-outline-variant rounded-l-lg hover:bg-white text-outline disabled:opacity-50 transition-colors" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-4 py-2 border border-outline-variant bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="px-4 py-2 border border-outline-variant bg-white text-on-surface hover:bg-surface-container-low font-label-md text-label-md">2</button>
+<button class="px-4 py-2 border border-outline-variant bg-white text-on-surface hover:bg-surface-container-low font-label-md text-label-md">3</button>
+<button class="px-4 py-2 border border-outline-variant bg-white text-on-surface hover:bg-surface-container-low font-label-md text-label-md hidden md:block">...</button>
+<button class="p-2 border border-outline-variant rounded-r-lg hover:bg-white text-outline transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+<!-- Platform Health Bento Snippet (Auxiliary Content) -->
+<div class="mt-stack-lg grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="glass-panel p-stack-md rounded-xl border border-outline-variant/20 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Active Electricians</span>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded text-[10px] font-bold">LIVE</span>
+</div>
+<div class="text-[28px] font-bold text-primary font-display-lg">1,284</div>
+<div class="text-caption font-caption text-on-secondary-fixed-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                    +12% from last month
+                </div>
+</div>
+<div class="glass-panel p-stack-md rounded-xl border border-outline-variant/20 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Pending Verifications</span>
+<span class="material-symbols-outlined text-secondary-container" data-icon="pending_actions">pending_actions</span>
+</div>
+<div class="text-[28px] font-bold text-on-surface font-display-lg">23</div>
+<div class="text-caption font-caption text-outline mt-1">Average wait time: 4.2 hrs</div>
+</div>
+<div class="glass-panel p-stack-md rounded-xl border border-outline-variant/20 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Platform Trust Score</span>
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+</div>
+<div class="text-[28px] font-bold text-on-surface font-display-lg">99.4%</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full w-[99.4%]"></div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-stack-lg pt-stack-md border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center w-full">
+<p class="font-caption text-caption text-on-surface-variant">© 2024 KashiCurrent Technologies. All rights reserved.</p>
+<div class="flex gap-stack-md mt-4 md:mt-0">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Electrician Portal</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

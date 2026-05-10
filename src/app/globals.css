@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../styles/theme.css';
+@import '../styles/animations.css';
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body), sans-serif;
+    background-image:
+      radial-gradient(circle at top left, rgba(194, 101, 42, 0.10), transparent 28%),
+      radial-gradient(circle at right 20%, rgba(224, 136, 80, 0.12), transparent 24%);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_20px_60px_rgba(17,28,45,0.08)];
+  }
+
+  .dark .glass-panel {
+    @apply bg-white/5 border-white/10;
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}

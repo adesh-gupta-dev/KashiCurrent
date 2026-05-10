@@ -1,0 +1,16 @@
+# Env files
+.env
+
+
+# Node
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build / test outputs
+dist/
+build/
+coverage/
+

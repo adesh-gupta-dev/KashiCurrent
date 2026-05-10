@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Appointment Requests | KashiCurrent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Eb+Garamond:wght@400;500;700&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-geist { font-family: 'Geist', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-primary-fixed-variant": "#8a4518", "on-secondary-fixed": "#2a2420", "on-tertiary-container": "#3a2020", "surface-container-lowest": "#ffffff", "surface-bright": "#faf5ee", "surface-tint": "#c2652a", secondary: "#78706a", "on-surface": "#3a302a", "secondary-fixed-dim": "#cec6be", "on-secondary-container": "#605850", "primary-fixed-dim": "#f0a878", "on-tertiary": "#ffffff", "error-container": "#fce4e0", "outline-variant": "#d8d0c8", "primary-container": "#e08850", surface: "#faf5ee", "on-tertiary-fixed": "#2e1515", "surface-container": "#f2ece4", "tertiary-fixed-dim": "#e8a0a0", "inverse-surface": "#3a302a", outline: "#9a9088", "on-primary": "#ffffff", "surface-container-highest": "#e6e0d6", "secondary-container": "#eae2da", "tertiary-fixed": "#fce0e0", "primary-fixed": "#fbe8d8", "surface-dim": "#dcd6cc", error: "#c0392b", "surface-container-high": "#ece6dc", "on-primary-fixed": "#401a08", "inverse-primary": "#f0a878", "surface-variant": "#ece6dc", "secondary-fixed": "#eae2da", "on-background": "#3a302a", "tertiary-container": "#d47070", primary: "#c2652a", "on-surface-variant": "#605850", tertiary: "#8c3c3c", "on-tertiary-fixed-variant": "#6e3030", "surface-container-low": "#f6f0e8", "inverse-on-surface": "#faf5ee", background: "#faf5ee", "on-error": "#ffffff", "on-error-container": "#7a1a10", "on-secondary": "#ffffff", "on-primary-container": "#fbe8d8", "on-secondary-fixed-variant": "#504840"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"container-max": "1280px", "stack-lg": "32px", "stack-sm": "8px", "stack-md": "16px", "margin-mobile": "16px", unit: "4px", gutter: "24px", "margin-desktop": "40px"}, fontFamily: {"label-md": ["Geist"], caption: ["Manrope"], "headline-lg-mobile": ["Geist"], "headline-md": ["Geist"], "display-lg": ["Geist"], "body-lg": ["Manrope"], "body-md": ["Manrope"], "headline-lg": ["Geist"], headline: ["Eb Garamond"], display: ["Eb Garamond"], body: ["Manrope"], label: ["Manrope"]}, fontSize: {"label-md": ["14px", {lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500"}], caption: ["12px", {lineHeight: "16px", fontWeight: "400"}], "headline-lg-mobile": ["24px", {lineHeight: "32px", fontWeight: "600"}], "headline-md": ["24px", {lineHeight: "32px", fontWeight: "600"}], "display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Side Navigation Shell -->
+<aside class="hidden md:flex flex-col h-full py-stack-md px-4 border-r border-outline-variant/30 bg-surface h-screen w-64 fixed left-0 top-0 z-50">
+<div class="mb-stack-lg px-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">KashiCurrent</h1>
+<p class="font-caption text-caption text-on-surface-variant">Premium Electrical Service</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-surface-variant dark:text-outline-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="bg-primary-container text-on-primary-container rounded-lg flex items-center gap-3 px-4 py-3 transition-transform active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">My Bookings</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="electrical_services">electrical_services</span>
+<span class="font-label-md text-label-md">Electricians</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-stack-md border-t border-outline-variant/20 space-y-1">
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-highest transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Top AppBar -->
+<header class="flex justify-between items-center px-margin-desktop max-w-container-max mx-auto h-20 w-full z-40 sticky top-0 bg-white/70 backdrop-blur-md md:pl-[300px]">
+<div class="flex items-center gap-stack-md">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Appointment Requests</h2>
+<span class="bg-primary-container text-on-primary-container font-label-md text-[12px] px-3 py-1 rounded-full">4 Pending</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors" data-icon="notifications">notifications</button>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User profile" data-alt="A professional portrait of a senior electrical engineer in a modern office environment. He is wearing a clean navy blue polo shirt with a subtle tech company logo. The lighting is crisp and professional, emphasizing a clean-cut, trustworthy appearance in a high-key light mode setting with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1zM5zf5tev-ZRqvrN78D6tGa8owiRtTLM1t20rI_M3uhVzqivAxdQOB71pnhqI2v6k1IQchmvd3Um2LwSqKlTysusLrfNV2vRgaVaXNv34uh-wqnITr1D1ZXQEJut6qKrMOJQyfbhoh8ng_wGLM_nWioNGgFk4hhTRccgc7rKAAMXGqAQrWzp4zIu11OOWx7EcB5dOBKdh1M2k556J-ntGr6BNXRqVV_Rbxp4ePTUcJAA1mJW4abI1CA0KVs2LdxhCt_jn4PAUpc"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="md:pl-64 min-h-screen">
+<div class="max-w-container-max mx-auto px-margin-desktop py-stack-lg">
+<!-- Filters & Stats Bento Section -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-stack-lg">
+<div class="glass-card p-stack-md rounded-xl shadow-sm flex flex-col justify-center">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Avg. Response Time</span>
+<span class="font-headline-md text-headline-md text-primary mt-1">12 min</span>
+</div>
+<div class="glass-card p-stack-md rounded-xl shadow-sm flex flex-col justify-center">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Completion Rate</span>
+<span class="font-headline-md text-headline-md text-secondary mt-1">98.4%</span>
+</div>
+<div class="glass-card p-stack-md rounded-xl shadow-sm col-span-1 md:col-span-2 flex items-center justify-between">
+<div>
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider">Active Status</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="h-3 w-3 rounded-full bg-green-500"></span>
+<span class="font-label-md text-label-md font-bold">Accepting Emergency Requests</span>
+</div>
+</div>
+<button class="bg-surface-container-high text-primary font-label-md px-4 py-2 rounded-lg hover:bg-surface-container-highest transition-colors">Go Offline</button>
+</div>
+</section>
+<!-- Request List -->
+<div class="space-y-gutter">
+<!-- Card 1: Emergency -->
+<div class="glass-card rounded-xl shadow-md border-l-4 border-error overflow-hidden">
+<div class="p-stack-md md:p-stack-lg">
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Left: Profile & Distance -->
+<div class="flex items-start gap-stack-md min-w-[240px]">
+<img class="h-16 w-16 rounded-xl object-cover" data-alt="A focused homeowner, a woman in her 40s, looking concerned in a modern, brightly lit residential kitchen with white marble countertops. The visual style is premium lifestyle photography with soft, natural lighting and a clean, high-contrast aesthetic typical of high-end service platforms." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU44JeTJRpaZs5Htvrtm11jKKlkx1x06vnBjDsfIBUk8LgpYUJdjHUZHlUolTOsQwmK6qb7Et5pM_RHGfZB96RboSO137HZENmxdSF1JY0BvYuKZwTaUckIU2idIuXpx_x7JZP-GY0Wg40un9wsYII4fbPPMYVn2GZwb-wWTEcvdy68phj1-b7j6e7IlEC-CQahgacWtJBTequfid0JJJlSTKSM-K3KvuxQdOV1cPngZJ6eUw1dBkJuRzZotASFoldmrUcYerodhY"/>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-[20px] text-on-surface">Sarah Mitchell</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-caption text-caption">2.4 miles away • Chelsea</span>
+</div>
+<span class="mt-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-error-container text-on-error-container uppercase">Urgent - Emergency</span>
+</div>
+</div>
+<!-- Middle: Description & Time -->
+<div class="flex-1 space-y-stack-sm">
+<div class="bg-surface-container-low p-stack-sm rounded-lg">
+<span class="font-label-md text-label-md font-bold text-on-surface block">Total Power Outage</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Main breaker tripped and won't reset. Half the house is dark. Need immediate assistance before evening.</p>
+</div>
+<div class="flex flex-wrap gap-stack-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="event">event</span>
+<span class="font-label-md text-label-md">Today, Oct 24</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">As soon as possible</span>
+</div>
+</div>
+</div>
+<!-- Right: Payout & Actions -->
+<div class="flex flex-col items-end justify-between min-w-[200px]">
+<div class="text-right">
+<span class="font-caption text-caption text-on-surface-variant">Estimated Payout</span>
+<div class="font-display-lg text-[32px] text-primary leading-none mt-1">$280.00</div>
+</div>
+<div class="flex flex-col w-full gap-2 mt-4">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded-lg hover:shadow-lg transition-all active:scale-[0.98]">Accept Request</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="text-on-surface-variant font-label-md border border-outline-variant py-2 rounded-lg hover:bg-surface-variant transition-colors">Reject</button>
+<button class="text-primary font-label-md border border-primary/20 py-2 rounded-lg hover:bg-primary-container/10 transition-colors">Reschedule</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: New Request -->
+<div class="glass-card rounded-xl shadow-md border-l-4 border-primary-container overflow-hidden">
+<div class="p-stack-md md:p-stack-lg">
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Left -->
+<div class="flex items-start gap-stack-md min-w-[240px]">
+<img class="h-16 w-16 rounded-xl object-cover" data-alt="A smiling young professional man in his 30s standing in a sun-drenched loft apartment. The background features modern architecture and industrial lighting. The photo is crisp, with a premium lifestyle aesthetic and professional color grading in a clean light-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwaL2VXrnRgrRQHky5H6VDJQ1veb8yMo2pEaUHZUBsargxI1FMd4GiC_gC0FngPvsvvoLIEuFHhP96L-DCJsthDO8IRqg2UChjZ9ILblZPLT6nTUmb9jqgQK0xY0KN_4zav8rCxQv4lxeAByStruhkc9JrqfFJpSQfKuP8du7RPm7zxoAlxj2FHuCaF7_uQWSfXl9DFFDr_l-63WgZgct1QOE1NNI1n39d8DWzLdimoQO6SNLQ6PrFHy51Ex9kGWTx0sjtbFWxGHE"/>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-[20px] text-on-surface">David Chen</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-caption text-caption">4.1 miles away • Brooklyn</span>
+</div>
+<span class="mt-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-primary-container text-on-primary-container uppercase">New Request</span>
+</div>
+</div>
+<!-- Middle -->
+<div class="flex-1 space-y-stack-sm">
+<div class="bg-surface-container-low p-stack-sm rounded-lg">
+<span class="font-label-md text-label-md font-bold text-on-surface block">EV Charger Installation</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Installing a Level 2 Wallbox in a private garage. Wiring is already in place but needs final connection and certification.</p>
+</div>
+<div class="flex flex-wrap gap-stack-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="event">event</span>
+<span class="font-label-md text-label-md">Fri, Oct 25</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">09:00 AM - 11:00 AM</span>
+</div>
+</div>
+</div>
+<!-- Right -->
+<div class="flex flex-col items-end justify-between min-w-[200px]">
+<div class="text-right">
+<span class="font-caption text-caption text-on-surface-variant">Estimated Payout</span>
+<div class="font-display-lg text-[32px] text-primary leading-none mt-1">$450.00</div>
+</div>
+<div class="flex flex-col w-full gap-2 mt-4">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded-lg hover:shadow-lg transition-all active:scale-[0.98]">Accept Request</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="text-on-surface-variant font-label-md border border-outline-variant py-2 rounded-lg hover:bg-surface-variant transition-colors">Reject</button>
+<button class="text-primary font-label-md border border-primary/20 py-2 rounded-lg hover:bg-primary-container/10 transition-colors">Reschedule</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-xl shadow-md border-l-4 border-outline-variant/30 overflow-hidden">
+<div class="p-stack-md md:p-stack-lg">
+<div class="flex flex-col md:flex-row gap-gutter opacity-90">
+<!-- Left -->
+<div class="flex items-start gap-stack-md min-w-[240px]">
+<img class="h-16 w-16 rounded-xl object-cover" data-alt="A portrait of a cheerful woman in her late 20s, with a warm and friendly expression. She is in a brightly lit, minimalist home office. The lighting is soft and even, highlighting a premium and professional photography style with a clean, light-mode background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKrS9jiZ2G7SWHRdJCT6UGRpdVA1TY7UMWdyv-RO-qhkWAhFjIYx_BCrW2btvtvvoVd9s_WUKAR9ZU_eWbhsZPwIicJiwZ2pSOyW_SmsrENEV_vOnjVz9TG90uR21Q0jBbdTu-0zX8Gop8vlstTPnwGlbPpi2w67XcAtV0q_S089dHtKD245rPtHhBmUb0hn4Nw-oJa4P05X4tWdNWbuHLpq47nSGhFO91TSKH8lA0239uPV7PAFeNrpRs8qZiIKPggYN1JLZBkCk"/>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-[20px] text-on-surface">Elena Rodriguez</h3>
+<div class="flex items-center gap-1 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span class="font-caption text-caption">6.8 miles away • Queens</span>
+</div>
+<span class="mt-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-surface-container text-on-surface-variant uppercase">Standard Request</span>
+</div>
+</div>
+<!-- Middle -->
+<div class="flex-1 space-y-stack-sm">
+<div class="bg-surface-container-low p-stack-sm rounded-lg">
+<span class="font-label-md text-label-md font-bold text-on-surface block">Smart Lighting Setup</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Replacing 8 standard dimmers with Lutron Caseta smart switches. High ceilings, ladder required for 2 units.</p>
+</div>
+<div class="flex flex-wrap gap-stack-md text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="event">event</span>
+<span class="font-label-md text-label-md">Sat, Oct 26</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+<span class="font-label-md text-label-md">01:00 PM - 03:00 PM</span>
+</div>
+</div>
+</div>
+<!-- Right -->
+<div class="flex flex-col items-end justify-between min-w-[200px]">
+<div class="text-right">
+<span class="font-caption text-caption text-on-surface-variant">Estimated Payout</span>
+<div class="font-display-lg text-[32px] text-primary leading-none mt-1">$195.00</div>
+</div>
+<div class="flex flex-col w-full gap-2 mt-4">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded-lg hover:shadow-lg transition-all active:scale-[0.98]">Accept Request</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="text-on-surface-variant font-label-md border border-outline-variant py-2 rounded-lg hover:bg-surface-variant transition-colors">Reject</button>
+<button class="text-primary font-label-md border border-primary/20 py-2 rounded-lg hover:bg-primary-container/10 transition-colors">Reschedule</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State / Load More (Optional Placeholder) -->
+<div class="mt-stack-lg text-center">
+<button class="font-label-md text-label-md text-primary flex items-center gap-2 mx-auto hover:underline">
+                    View request history
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="md:pl-64 w-full bg-surface-container-highest border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-lg max-w-container-max mx-auto w-full">
+<div class="mb-4 md:mb-0">
+<h4 class="font-headline-md text-[20px] font-bold text-primary">KashiCurrent</h4>
+<p class="font-caption text-caption text-on-surface-variant mt-1">© 2024 KashiCurrent Technologies. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap gap-gutter justify-center">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-all" href="#">Contact Support</a>
+<a class="font-caption text-caption text-on-surface-variant font-bold hover:text-primary transition-all" href="#">Electrician Portal</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Navigation (Only visible on small screens) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-outline-variant/20 flex justify-around items-center h-16 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="calendar_today" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="text-[10px] font-bold">Requests</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-bold">Wallet</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>
