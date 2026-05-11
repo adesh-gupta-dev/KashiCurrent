@@ -21,6 +21,10 @@ export const siteConfig = {
     'homeowner dashboard',
     'electrician scheduling',
     'KashiCurrent',
+    'adeshgupta',
+    'kalpriti',
+    'Adesh Gupta',
+    'Kalpriti',
   ],
 };
 
@@ -73,6 +77,7 @@ export function buildMetadata({
       images: [resolveUrl(image)],
       creator: '@kashicurrent',
     },
+    authors: [{ name: 'Adesh Gupta' }, { name: 'Kalpriti' }],
   };
 }
 

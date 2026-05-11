@@ -41,7 +41,11 @@ export function useAuthSync() {
   useEffect(() => {
     const roleHint = getRoleCookie();
     const storedToken = typeof window !== 'undefined' ? window.localStorage.getItem('kc_access_token') : null;
-    const shouldBootstrap = Boolean(roleHint || storedToken || pathname?.startsWith('/dashboard'));
+    const isAuthRoute = ['/login', '/register', '/forgot-password', '/reset-password'].some((route) =>
+      pathname?.startsWith(route)
+    );
+    const isDashboardRoute = Boolean(pathname?.startsWith('/dashboard'));
+    const shouldBootstrap = Boolean((roleHint || storedToken) && (isDashboardRoute || isAuthRoute));
 
     if (!shouldBootstrap) {
       setLoading(false);
