@@ -1,4 +1,8 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+const normalizedVercelUrl = vercelUrl
+  ? `https://${vercelUrl.replace(/^https?:\/\//, '')}`
+  : null;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || normalizedVercelUrl || 'http://localhost:3000';
 
 export const siteConfig = {
   name: 'KashiCurrent',

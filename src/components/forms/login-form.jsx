@@ -52,7 +52,7 @@ export function LoginForm() {
       toast.success('Login successful.');
 
       const nextPath = searchParams.get('next');
-      router.push(nextPath || roleRoutes[role] || '/');
+      router.replace(nextPath || roleRoutes[role] || '/');
       router.refresh();
     } catch (error) {
       showErrorToast(error, 'Unable to sign in');

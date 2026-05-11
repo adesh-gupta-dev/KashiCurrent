@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const healthUrl = process.env.NEXT_PUBLIC_HEALTH_URL || 'http://localhost:5000/health';
+const healthUrl = process.env.NEXT_PUBLIC_HEALTH_URL || '/health';
 
 export function SystemHealthBadge() {
   const [status, setStatus] = useState('checking');

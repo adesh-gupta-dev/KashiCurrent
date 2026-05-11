@@ -16,6 +16,21 @@ function setRoleCookie(role) {
   document.cookie = `kc_role=${encodeURIComponent(role)}; path=/; max-age=${60 * 60 * 24 * 7}; samesite=lax`;
 }
 
+function setTokenCookie(token) {
+  if (typeof document === 'undefined') {
+    return;
+  }
+
+  const secure = typeof window !== 'undefined' && window.location.protocol === 'https:' ? '; secure' : '';
+
+  if (!token) {
+    document.cookie = `token=; path=/; max-age=0; samesite=lax${secure}`;
+    return;
+  }
+
+  document.cookie = `token=${encodeURIComponent(token)}; path=/; max-age=${60 * 60 * 24 * 7}; samesite=lax${secure}`;
+}
+
 export const useAuthStore = create(
   persist(
     (set) => ({
@@ -34,6 +49,7 @@ export const useAuthStore = create(
         }
 
         setRoleCookie(role);
+        setTokenCookie(token);
 
         set({
           user: user || null,
@@ -51,6 +67,7 @@ export const useAuthStore = create(
         }
 
         setRoleCookie(null);
+        setTokenCookie(null);
 
         set({
           user: null,
